@@ -1,0 +1,62 @@
+{
+  "../../../../../@crx/manifest": {
+    "file": "assets/crx-manifest.js-B6D1lGL6.js",
+    "name": "crx-manifest.js",
+    "src": "../../../../../@crx/manifest",
+    "isEntry": true
+  },
+  "_models-BZWjU_GH.js": {
+    "file": "assets/models-BZWjU_GH.js",
+    "name": "models"
+  },
+  "_use-alert-store-BILcd03Q.js": {
+    "file": "assets/use-alert-store-BILcd03Q.js",
+    "name": "use-alert-store",
+    "imports": [
+      "_models-BZWjU_GH.js"
+    ]
+  },
+  "index.html": {
+    "file": "assets/index.html-BysQlfRu.js",
+    "name": "index.html",
+    "src": "index.html",
+    "isEntry": true,
+    "imports": [
+      "_use-alert-store-BILcd03Q.js",
+      "_models-BZWjU_GH.js"
+    ],
+    "css": [
+      "assets/index-Lz2abuG8.css"
+    ]
+  },
+  "index.jsx-loader.js": {
+    "file": "assets/index.jsx-loader-Ctu1zwVw.js",
+    "src": "index.jsx-loader.js"
+  },
+  "public/notification.mp3": {
+    "file": "assets/notification-BDyL3yVR.mp3",
+    "src": "public/notification.mp3"
+  },
+  "src/background/index.js": {
+    "file": "assets/index.js-IzTvInty.js",
+    "name": "index.js",
+    "src": "src/background/index.js",
+    "isEntry": true,
+    "imports": [
+      "_use-alert-store-BILcd03Q.js",
+      "_models-BZWjU_GH.js"
+    ]
+  },
+  "src/content/index.jsx": {
+    "file": "assets/index.jsx-cCKdT8sc.js",
+    "name": "index.jsx",
+    "src": "src/content/index.jsx",
+    "isEntry": true,
+    "imports": [
+      "_models-BZWjU_GH.js"
+    ],
+    "assets": [
+      "assets/notification-BDyL3yVR.mp3"
+    ]
+  }
+}

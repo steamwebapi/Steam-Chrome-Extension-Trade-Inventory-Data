@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Steamauth",
+  "description": "Steamauth is a browser extension that allows you sharing your Data with other websites securely.",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/index.jsx-loader-Ctu1zwVw.js"
+      ],
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "permissions": [
+    "cookies",
+    "storage",
+    "tabs",
+    "action"
+  ],
+  "host_permissions": [
+    "https://steamcommunity.com/",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "icons": {
+    "16": "src/assets/logo.png",
+    "48": "src/assets/logo.png",
+    "128": "src/assets/logo.png"
+  },
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "resources": [
+        "assets/notification-BDyL3yVR.mp3",
+        "assets/models-BZWjU_GH.js",
+        "assets/index.jsx-cCKdT8sc.js"
+      ],
+      "use_dynamic_url": true
+    }
+  ]
+}
