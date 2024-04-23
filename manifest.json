@@ -24,8 +24,7 @@
   "permissions": [
     "cookies",
     "storage",
-    "tabs",
-    "action"
+    "tabs"
   ],
   "host_permissions": [
     "https://steamcommunity.com/",

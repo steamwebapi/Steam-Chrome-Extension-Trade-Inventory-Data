@@ -24,7 +24,7 @@ This build is a production version. We ensure the highest quality and security s
 
 ## For Developers
 
-Visit [www.steamauth.com](https://www.steamauth.com) and click on the "Developer" button for documentation and API access.
+Visit [www.steamauth.app](https://www.steamauth.app) and click on the "Developer" button for documentation and API access.
 
 ## Customization
 
