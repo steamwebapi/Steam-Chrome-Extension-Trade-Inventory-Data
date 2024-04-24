@@ -2,6 +2,9 @@
 
 Steamauth is a Chrome Extension that allows users to securely share their inventory and trade information. Visit [www.steamauth.com](https://www.steamauth.com) for more details.
 
+
+[![Steamauth](https://www.steamauth.app/steamauthappscreen1.png)](https://www.steamauth.app)
+
 ## Manual Installation for Users
 
 1. Download the ZIP file.
