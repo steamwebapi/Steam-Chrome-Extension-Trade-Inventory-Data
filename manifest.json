@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Steamauth",
-  "description": "Steamauth is a browser extension that allows you sharing your Data with other websites securely.",
-  "version": "1.0.0",
+  "name": "SteamAuth",
+  "description": "SteamAuth is a browser extension that allows you sharing your Inventory or Trading Data with other websites securely.",
+  "version": "1.0.1",
   "action": {
     "default_popup": "index.html"
   },
   "content_scripts": [
     {
       "js": [
-        "assets/index.jsx-loader-Ctu1zwVw.js"
+        "assets/index.jsx-loader-GB37Ao-U.js"
       ],
       "matches": [
         "https://*/*",
@@ -28,13 +28,13 @@
   ],
   "host_permissions": [
     "https://steamcommunity.com/",
-    "http://*/*",
-    "https://*/*"
+    "https://www.steamwebapi.com/*"
   ],
   "icons": {
     "16": "src/assets/logo.png",
-    "48": "src/assets/logo.png",
-    "128": "src/assets/logo.png"
+    "32": "src/assets/steamauth_logo32.png",
+    "48": "src/assets/steamauth_logo64.png",
+    "128": "src/assets/steamauth_logo128.png"
   },
   "web_accessible_resources": [
     {
@@ -43,9 +43,8 @@
         "https://*/*"
       ],
       "resources": [
-        "assets/notification-BDyL3yVR.mp3",
         "assets/models-BZWjU_GH.js",
-        "assets/index.jsx-cCKdT8sc.js"
+        "assets/index.jsx-C6HC0Sp2.js"
       ],
       "use_dynamic_url": true
     }
