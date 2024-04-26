@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/index.jsx-loader-GB37Ao-U.js"
+        "assets/index.jsx-loader-BQn31GRX.js"
       ],
       "matches": [
         "https://*/*",
@@ -43,8 +43,8 @@
         "https://*/*"
       ],
       "resources": [
-        "assets/models-BZWjU_GH.js",
-        "assets/index.jsx-C6HC0Sp2.js"
+        "assets/browser-polyfill-D19t-2ey.js",
+        "assets/index.jsx-Bw4wM5Ef.js"
       ],
       "use_dynamic_url": true
     }
