@@ -6,6 +6,11 @@
   "action": {
     "default_popup": "index.html"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "info@steamauth.com"
+    }
+  },
   "content_scripts": [
     {
       "js": [
