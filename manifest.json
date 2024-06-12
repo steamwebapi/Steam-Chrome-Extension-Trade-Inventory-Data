@@ -46,8 +46,7 @@
   },
   "permissions": [
     "cookies",
-    "storage",
-    "tabs"
+    "storage"
   ],
   "host_permissions": [
     "*://steamcommunity.com/*",
