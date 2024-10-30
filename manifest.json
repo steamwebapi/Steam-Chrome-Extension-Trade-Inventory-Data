@@ -24,20 +24,11 @@
         "https://*/*"
       ],
       "resources": [
-        "public/notification.mp3"
-      ],
-      "use_dynamic_url": false
-    },
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "resources": [
+        "public/notification.mp3",
         "assets/browser-polyfill-D19t-2ey.js",
         "assets/index.jsx-Bw4wM5Ef.js"
       ],
-      "use_dynamic_url": true
+      "use_dynamic_url": false
     }
   ],
   "background": {
