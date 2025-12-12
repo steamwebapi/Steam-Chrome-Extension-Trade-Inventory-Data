@@ -2,14 +2,14 @@
   "manifest_version": 3,
   "name": "SteamAuth",
   "description": "SteamAuth is a browser extension that allows you sharing your Inventory or Trading Data with other websites securely.",
-  "version": "1.0.1",
+  "version": "2.0.2",
   "action": {
     "default_popup": "index.html"
   },
   "content_scripts": [
     {
       "js": [
-        "assets/index.jsx-loader-BQn31GRX.js"
+        "assets/index.jsx-loader-B0-j3uXS.js"
       ],
       "matches": [
         "https://*/*",
@@ -25,8 +25,8 @@
       ],
       "resources": [
         "public/notification.mp3",
-        "assets/browser-polyfill-D19t-2ey.js",
-        "assets/index.jsx-Bw4wM5Ef.js"
+        "assets/browser-polyfill-DaZBtFLh.js",
+        "assets/index.jsx-D5mIIc-k.js"
       ],
       "use_dynamic_url": false
     }

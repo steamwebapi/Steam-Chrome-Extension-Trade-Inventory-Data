@@ -2,24 +2,32 @@
 
 Steamauth is a Chrome Extension that allows users to securely share their inventory and trade information. Visit [www.steamauth.app](https://www.steamauth.app) for more details.
 
-
 [![Steamauth](https://www.steamauth.app/steamauthappscreen1.png)](https://www.steamauth.app)
 
-## Manual Installation for Users
+## How it Works
 
-1. Download the ZIP file.
-2. Unzip the folder.
-3. Open Chrome browser.
-4. Navigate to `chrome://extensions/`.
-5. Enable Developer Mode.
-6. Click on `Load Unpacked`.
-7. Select the unzipped folder.
-8. Installation completed.
+Steamauth acts as a secure bridge between your Steam account and supported third-party websites.
 
-## Installation over Chrome Web Store
+1. **Integration**: Websites integrate with Steamauth to request specific data (like your trade URL or inventory).
+2. **User Confirmation**: When a website requests access, Steamauth will prompt you for confirmation.
+3. **Secure Transfer**: Upon your approval, Steamauth fetches the necessary data directly from Steam and shares it with the website. Your login credentials are never shared.
+
+## Installation
+
+### Option 1: Chrome Web Store (Recommended)
 
 1. Visit [Chrome Web Store](https://chrome.google.com/webstore/category/extensions) and search for "Steamauth".
 2. Click on "Add to Chrome" to install the extension directly from the store.
+
+### Option 2: Manual Installation (Developer / Beta)
+
+1. Download the `steamauthapp.zip` file from the latest release.
+2. Unzip the folder.
+3. Open Chrome browser and navigate to `chrome://extensions/`.
+4. Enable **Developer Mode** in the top right corner.
+5. Click on **Load Unpacked**.
+6. Select the unzipped folder.
+7. Installation is complete!
 
 ## Build Information
 
@@ -35,7 +43,11 @@ You have the option to customize the extension by editing the `manifest.json` fi
 
 ## Security and Privacy
 
-Steamauth prioritizes user security and privacy. We do not store any data from you or your users. Our commitment to security ensures a safe browsing experience.
+Steamauth prioritizes user security and privacy.
+
+- **No Credential Sharing**: We never share your Steam username or password with third-party sites.
+- **Data Privacy**: We do not store any personal data. The extension facilitates a direct transfer between Steam and the requesting site.
+- **Open Source**: Our code is open source and available for review on GitHub.
 
 ## Feedback and Support
 
