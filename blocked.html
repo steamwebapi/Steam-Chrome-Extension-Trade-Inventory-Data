@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Blocked - SteamAuth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #171a21;
+            color: #94a3b8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 600px;
+        }
+        .logo {
+            height: 20px;
+            width: auto;
+            opacity: 0.15;
+        }
+        .icon {
+            color: #e05a59;
+            width: 64px;
+            height: 64px;
+            margin-top: 2rem;
+        }
+        .badge {
+            display: none;
+            background: rgba(224, 90, 89, 0.15);
+            border: 1px solid rgba(224, 90, 89, 0.3);
+            color: #e05a59;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge.visible {
+            display: inline-block;
+        }
+        .content {
+            margin-top: 1.5rem;
+        }
+        h1 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+        p {
+            font-size: 0.9375rem;
+            color: #94a3b8;
+        }
+        .domain {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #3b82f6;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 1.25rem 4rem;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+        .footer-text {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        .footer-text a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.15s ease;
+            cursor: pointer;
+        }
+        .footer-text a:hover {
+            color: #e05a59;
+        }
+        .settings-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 0.7rem;
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.15s ease;
+            cursor: pointer;
+        }
+        .settings-link:hover {
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="steamauth-logo.webp" alt="SteamAuth" class="logo" />
+        
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+            <path d="M12 8v4"></path>
+            <path d="M12 16h.01"></path>
+        </svg>
+
+        <div class="badge" id="reason-badge"></div>
+
+        <div class="content">
+            <h1>Potential Phishing Site Detected</h1>
+            <p>
+                SteamAuth has blocked access to <span class="domain" id="blocked-domain">this site</span> because it may be impersonating a legitimate website and could trick you into revealing your Steam credentials, email, password, or Steam Web API key.
+            </p>
+        </div>
+
+        <button id="btn-go-back" class="btn-primary">← Go Back to Safety</button>
+
+        <p class="footer-text">
+            If you understand the risks, <a id="btn-proceed">visit this unsafe site anyway</a>.
+        </p>
+
+        <a id="btn-settings" class="settings-link">Manage blocked sites</a>
+    </div>
+
+    <script>
+        // Parse URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const site = params.get('site');
+        const reason = params.get('reason');
+
+        // Update domain display
+        if (site) {
+            document.getElementById('blocked-domain').textContent = site;
+        }
+
+        // Show reason badge if available
+        if (reason) {
+            const badge = document.getElementById('reason-badge');
+            badge.textContent = reason;
+            badge.classList.add('visible');
+        }
+
+        // Go back button
+        document.getElementById('btn-go-back').addEventListener('click', () => {
+            if (window.history.length > 2) {
+                window.history.go(-2);
+            } else {
+                window.location.href = 'https://google.com';
+            }
+        });
+
+        // Proceed button - redirect back to the site with session flag
+        document.getElementById('btn-proceed').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (site && confirm('Are you absolutely sure? This site is flagged as dangerous and may steal your Steam credentials.')) {
+                // Store in sessionStorage and redirect
+                sessionStorage.setItem('steamauth_ignore_scam_warning', 'true');
+                window.location.href = 'http://' + site;
+            }
+        });
+
+        // Settings button
+        document.getElementById('btn-settings').addEventListener('click', (e) => {
+            e.preventDefault();
+            // Open extension popup with scam-sites page
+            // Use browser API with chrome fallback for cross-browser compatibility
+            const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+            const getURL = browserAPI?.runtime?.getURL;
+            window.open(getURL ? getURL('index.html?page=scam-sites') : 'about:blank', '_blank');
+        });
+    </script>
+</body>
+</html>

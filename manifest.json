@@ -1,20 +1,21 @@
 {
   "manifest_version": 3,
   "name": "SteamAuth",
-  "description": "SteamAuth is a browser extension that allows you sharing your Inventory or Trading Data with other websites securely.",
-  "version": "2.0.2",
+  "description": "Your Steam companion: instant inventory, easy trading, auto-accept gifts & scam protection. Works on all partner sites.",
+  "version": "3.0.0",
   "action": {
     "default_popup": "index.html"
   },
   "content_scripts": [
     {
       "js": [
-        "assets/index.jsx-loader-B0-j3uXS.js"
+        "assets/index.ts-loader-CRvdhWfT.js"
       ],
       "matches": [
         "https://*/*",
         "http://*/*"
-      ]
+      ],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
@@ -24,9 +25,12 @@
         "https://*/*"
       ],
       "resources": [
-        "public/notification.mp3",
-        "assets/browser-polyfill-DaZBtFLh.js",
-        "assets/index.jsx-D5mIIc-k.js"
+        "notification.mp3",
+        "cash.mp3",
+        "steamauth-logo.webp",
+        "blocked.html",
+        "assets/utils-CtNtESjZ.js",
+        "assets/index.ts-HQW7Rs23.js"
       ],
       "use_dynamic_url": false
     }
@@ -37,10 +41,14 @@
   },
   "permissions": [
     "cookies",
-    "storage"
+    "storage",
+    "offscreen",
+    "declarativeNetRequest",
+    "notifications"
   ],
   "host_permissions": [
     "*://steamcommunity.com/*",
+    "*://api.steampowered.com/*",
     "*://www.steamwebapi.com/*"
   ],
   "icons": {
