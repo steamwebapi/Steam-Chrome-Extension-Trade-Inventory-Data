@@ -149,52 +149,6 @@
         <a id="btn-settings" class="settings-link">Manage blocked sites</a>
     </div>
 
-    <script>
-        // Parse URL parameters
-        const params = new URLSearchParams(window.location.search);
-        const site = params.get('site');
-        const reason = params.get('reason');
-
-        // Update domain display
-        if (site) {
-            document.getElementById('blocked-domain').textContent = site;
-        }
-
-        // Show reason badge if available
-        if (reason) {
-            const badge = document.getElementById('reason-badge');
-            badge.textContent = reason;
-            badge.classList.add('visible');
-        }
-
-        // Go back button
-        document.getElementById('btn-go-back').addEventListener('click', () => {
-            if (window.history.length > 2) {
-                window.history.go(-2);
-            } else {
-                window.location.href = 'https://google.com';
-            }
-        });
-
-        // Proceed button - redirect back to the site with session flag
-        document.getElementById('btn-proceed').addEventListener('click', (e) => {
-            e.preventDefault();
-            if (site && confirm('Are you absolutely sure? This site is flagged as dangerous and may steal your Steam credentials.')) {
-                // Store in sessionStorage and redirect
-                sessionStorage.setItem('steamauth_ignore_scam_warning', 'true');
-                window.location.href = 'http://' + site;
-            }
-        });
-
-        // Settings button
-        document.getElementById('btn-settings').addEventListener('click', (e) => {
-            e.preventDefault();
-            // Open extension popup with scam-sites page
-            // Use browser API with chrome fallback for cross-browser compatibility
-            const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
-            const getURL = browserAPI?.runtime?.getURL;
-            window.open(getURL ? getURL('index.html?page=scam-sites') : 'about:blank', '_blank');
-        });
-    </script>
+    <script src="blocked.js"></script>
 </body>
 </html>
